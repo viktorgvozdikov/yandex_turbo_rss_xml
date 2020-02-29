@@ -1,0 +1,31 @@
+{
+  "name":"modulebz/yandex_turbo_rss_xml",
+  "description": "Генерация rss в формате xml для яндекс turbo",
+  "version": "0.0.1",
+  "keywords": ["php","yandex","turbo"],
+  "homepage": "https://module.bz",
+  "authors" : [
+    {
+      "name": "Viktor Gvozdikov",
+      "homepage": "https://gvozdikov.net/",
+      "email": "victor@gvozdikov.net",
+      "role": "developer"
+    }
+  ],
+  "support": {
+    "email": "victor@gvozdikov.net"
+  },
+  "autoload": {
+    "psr-4": {
+      "ModuleBZ\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ModuleBZ\\": "src/"
+    }
+  },
+  "require": {
+    "ext-json": "*"
+  }
+}
