@@ -26,6 +26,7 @@
     }
   },
   "require": {
+    "modulebz/iso": "dev-master",
     "ext-json": "*"
   }
 }
