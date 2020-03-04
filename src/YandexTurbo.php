@@ -9,8 +9,6 @@ use ModuleBZ\YandexTurbo\Analytics\MailRu;
 use ModuleBZ\YandexTurbo\Analytics\MediaScope;
 use ModuleBZ\YandexTurbo\Analytics\RamblerTop;
 use ModuleBZ\YandexTurbo\Analytics\YandexMetrica;
-use  ModuleBZ\YandexTurbo\EAnalyticsOptions;
-use ModuleBZ\YandexTurbo\EAnalyticsType;
 
 class YandexTurbo {
     public function __construct() {
