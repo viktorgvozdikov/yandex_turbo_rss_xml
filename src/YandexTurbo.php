@@ -50,7 +50,7 @@ class YandexTurbo {
      * @param array $params array | \stdClass
      * @return YandexTurbo
      */
-    function addYandeMetrica( $id, $params = []){ $this->analytics[] = new YandexMetrica($id,$params); return $this;}
+    function addYandexMetrica( $id, $params = []){ $this->analytics[] = new YandexMetrica($id,$params); return $this;}
     /**
      * @param string $name
      * @return $this
