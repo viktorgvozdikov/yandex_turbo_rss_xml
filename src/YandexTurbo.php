@@ -1,6 +1,10 @@
-<?
+<?php
+
 namespace ModuleBZ;
 
+use ModuleBZ\YandexTurbo\Analytics\YandexMetrica;
+use  ModuleBZ\YandexTurbo\EAnalyticsOptions;
+use ModuleBZ\YandexTurbo\EAnalyticsType;
 
 class YandexTurbo {
     /**
@@ -26,6 +30,24 @@ class YandexTurbo {
      * @var string Язык статьи по стандарту ISO 639-1
      */
     var $language;
+
+    /**
+     * @var array массив для turbo:analytics
+     */
+    private $analytics = [];
+
+    /**
+     * @param $id string | int номер счётчика
+     * @param array $params array | \stdClass
+     * @return YandexTurbo
+     */
+    function addYandeMetrica( $id, $params = []){ $this->analytics[] = new YandexMetrica($id,$params); return $this;}
+
+    private function analyticsToString(){
+        $res ='';
+        foreach ($this->analytics as $v) $res .= $v;
+        return $res;
+    }
     public function __construct() {
 
     }
@@ -34,11 +56,12 @@ class YandexTurbo {
 .'<rss xmlns:yandex="http://news.yandex.ru"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:turbo="http://turbo.yandex.ru"
-     version="2.0">'
+     version="2.0"><channel>'
             .(($c = $this->title)?'<title>'.$c.'</title>':'')
             .(($c = $this->link)?'<link>'.$c.'</link>':'')
             .(($c = $this->description)?'<description>'.$c.'</description>':'')
             .(($c = $this->language)?'<language>'.$c.'</language>':'')
-        .'</rss>';
+            .$this->analyticsToString()
+        .'</channel></rss>';
     }
 }

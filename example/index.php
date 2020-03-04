@@ -8,4 +8,7 @@ $turbo->title = 'Первый тест';
 $turbo->description = 'Описание канала';
 $turbo->link = 'https://ya.ru';
 $turbo->language = \ModuleBZ\ISO\enum\ISO639_1::_RU;
+
+$turbo->addYandeMetrica(5000,['a'=>'b']);
+
 echo htmlspecialchars($turbo);
