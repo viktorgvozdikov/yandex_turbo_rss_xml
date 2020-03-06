@@ -9,7 +9,7 @@ $turbo = (new YandexTurbo())
     ->setTitle('Первый тест')
     // Добавление описания
     ->setDescription('Описание канала')
-    // Указание ссылки на сайи
+    // Указание ссылки на сайт
     ->setLink( 'https://ya.ru')
     // Установка языка
     ->setLanguage( \ModuleBZ\ISO\enum\ISO639_1::_RU)
