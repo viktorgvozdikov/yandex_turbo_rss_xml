@@ -1,3 +1,10 @@
+# Генератор yandex turbo страниц в формате xml
+
+## Установка
+
+```composer require modulebz/yandex_turbo_rss_xml```
+
+```php
 <?
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Item;
@@ -77,3 +84,5 @@ $turbo->addItem(
 $turbo->echoXml();
 // Или сначала смотрим получившийся код в формате строки
 ///echo htmlspecialchars($turbo);
+
+```
