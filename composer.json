@@ -30,7 +30,7 @@
     }
   },
   "require": {
-    "modulebz/iso": "*",
+    "modulebz/iso": "1.0.1",
     "ext-json": "*",
     "php":">=7.0.0"
   }
