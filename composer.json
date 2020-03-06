@@ -14,7 +14,10 @@
     }
   ],
   "support": {
-    "email": "victor@gvozdikov.net"
+    "email"   : "victor@gvozdikov.net",
+    "issues"  : "https://github.com/viktorgvozdikov/yandex_turbo_rss_xml/issues",
+    "source"  : "https://github.com/viktorgvozdikov/yandex_turbo_rss_xml",
+    "wiki"    : "https://github.com/viktorgvozdikov/yandex_turbo_rss_xml/wiki"
   },
   "autoload": {
     "psr-4": {
@@ -27,7 +30,8 @@
     }
   },
   "require": {
-    "modulebz/iso": "dev-master",
-    "ext-json": "*"
+    "modulebz/iso": "*",
+    "ext-json": "*",
+    "php":">=7.0.0"
   }
 }
