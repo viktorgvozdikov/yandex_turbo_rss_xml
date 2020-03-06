@@ -128,7 +128,8 @@ $turbo->echoXml();
             <pubDate>Fri, 06 Mar 20 15:54:19 +0300</pubDate>
             <yandex:related type="infinity">
                 <link url="https://gvozdikov.net/about">Обо мне</link>
-                <link url="https://gvozdikov.net/portfolio" img="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg">Портфолио</link></yandex:related>
+                <link url="https://gvozdikov.net/portfolio" img="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg">Портфолио</link>
+            </yandex:related>
             <metrics>
                 <yandex schema_identifier="100">
                     <breadcrumblist>
