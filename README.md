@@ -93,15 +93,14 @@ $turbo->echoXml();
 ### Результат
 
 ```xhtml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:yandex="http://news.yandex.ru"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:turbo="http://turbo.yandex.ru"
      version="2.0">
-    <channel><title>Первый тест</title>
-        <link>
-        https://ya.ru</link>
+    <channel>
+        <title>Первый тест</title>
+        <link>https://ya.ru</link>
         <description>Описание канала</description>
         <language>ru</language>
         <turbo:analytics type="Yandex" id="5000" params='{"a":"b"}'></turbo:analytics>
@@ -125,15 +124,11 @@ $turbo->echoXml();
             <author>Виктор</author>
             <turbo:source>https://source.ru</turbo:source>
             <turbo:topic>topic</turbo:topic>
-            <link>
-            https://gvozdikov.net</link>
+            <link>https://gvozdikov.net</link>
             <pubDate>Fri, 06 Mar 20 15:54:19 +0300</pubDate>
             <yandex:related type="infinity">
-                <link url="https://gvozdikov.net/about">
-                Обо мне</link>
-                <link url="https://gvozdikov.net/portfolio"
-                      img="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg">
-                Портфолио</link></yandex:related>
+                <link url="https://gvozdikov.net/about">Обо мне</link>
+                <link url="https://gvozdikov.net/portfolio" img="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg">Портфолио</link></yandex:related>
             <metrics>
                 <yandex schema_identifier="100">
                     <breadcrumblist>
@@ -142,33 +137,35 @@ $turbo->echoXml();
                     </breadcrumblist>
                 </yandex>
             </metrics>
-            <turbo:content><![CDATA[
-                <header><h1>Первая новость</h1>
-                    <h2>Подзаголовок</h2>
-                    <figure><img src="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg"></figure>
-                    <menu><a href="https://gvozdikov.net">Пукнт 1</a><a href="https://gvozdikov.net">Пукнт 2</a><a
-                            href="https://gvozdikov.net">Пукнт 3</a></menu>
-                </header>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>
-                <p>Тут будет контент новости</p>]]>
+            <turbo:content>
+                <![CDATA[
+                    <header><h1>Первая новость</h1>
+                        <h2>Подзаголовок</h2>
+                        <figure><img src="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg"></figure>
+                        <menu><a href="https://gvozdikov.net">Пукнт 1</a><a href="https://gvozdikov.net">Пукнт 2</a><a
+                                href="https://gvozdikov.net">Пукнт 3</a></menu>
+                    </header>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                    <p>Тут будет контент новости</p>
+                ]]>
             </turbo:content>
         </item>
     </channel>
