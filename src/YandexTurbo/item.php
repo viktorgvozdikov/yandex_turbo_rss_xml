@@ -21,8 +21,52 @@ class Item {
     protected $related = [];
     /** @var array Дополнительная информация о странице. Используется для связывания контентной информации на основной и Турбо‑странице сайта. */
     protected $metrics_breadcrumbs = [];
-    /** @var string   */
+    /**
+     * @link https://yandex.ru/support/metrica/publishers/schema-org/microdata.html#microdata__identifier-desc
+     * @var string  schema_identifier — идентификатор, который указан на основной странице.
+     */
     protected $metric_yandex_schema_identifier = '';
+    /** @var string конетнт статьи */
+    protected $content;
+    /** @var string Заголовок h1 */
+    protected $header_h1;
+    /** @var string Заголовок h2 */
+    protected $header_h2;
+    /** @var string картинка для заголовка*/
+    protected $header_img;
+    /** @var array меню для заголовка*/
+    protected $header_menu = [];
+
+    /**
+     * @param string $h1
+     * @return $this
+     */
+    public function setHeaderH1(string $h1){$this->header_h1 = $h1; return $this;}
+
+    /**
+     * @param string $h2
+     * @return $this
+     */
+    public function setHeaderH2(string $h2){$this->header_h2 = $h2; return $this;}
+
+    /**
+     * @param string $img
+     * @return $this
+     */
+    public function setHeaderImg(string $img){$this->header_img = $img; return $this;}
+
+    /**
+     * @param string $url
+     * @param string $name
+     * @return $this
+     */
+    public function addHeaderMenu(string $url,string $name){$this->header_menu[] = [$url,$name]; return $this;}
+
+    /**
+     * @param string $content
+     * @return $this
+     */
+    public function setContent(string $content){$this->content = $content; return $this;}
 
     /**
      * @param string $id
@@ -88,7 +132,10 @@ class Item {
     public function setPubDate(int $time) { $this->pub_date = $time; return $this; }
 
 
-    protected function metricsToString(){
+    /**
+     * @return string
+     */
+    private function metricsToString(){
         $res = '';
         if($this->metric_yandex_schema_identifier){
             $res = '<metrics>'
@@ -101,7 +148,11 @@ class Item {
         }
         return $res;
     }
-    protected function relatedToString(){
+
+    /**
+     * @return string
+     */
+    private function relatedToString(){
         $res = '';
         if($this->related){
             $res = '<yandex:related'.($this->is_related_infinity?' type="infinity"':'').'>';
@@ -112,18 +163,17 @@ class Item {
         }
         return $res;
     }
-    protected function headerToString(){
-        return '<header>
-                        <h1>Ресторан «Полезный завтрак»</h1>
-                        <h2>Вкусно и полезно</h2>
-                        <figure>
-                            <img src="https://avatars.mds.yandex.net/get-sbs-sd/403988/e6f459c3-8ada-44bf-a6c9-dbceb60f3757/orig">
-                        </figure>
-                        <menu>
-                            <a href="http://example.com/page1.html">Пункт меню 1</a>
-                            <a href="http://example.com/page2.html">Пункт меню 2</a>
-                        </menu>
-                    </header>';
+
+    /**
+     * @return string
+     */
+    private function headerToString(){
+        return '<header>'
+                    .(($c = $this->header_h1)?'<h1>'.$c.'</h1>':'')
+                    .(($c = $this->header_h2)?'<h2>'.$c.'</h2>':'')
+                    .(($c = $this->header_img)?'<figure><img src="'.$c.'"></figure>':'')
+                    .(($c = $this->header_menu)?'<menu>'.implode(array_map(function($v){return '<a href="'.$v[0].'">'.$v[1].'</a>';},$this->header_menu)).'</menu>':'')
+                .'</header>';
     }
 
     public function __toString() {
@@ -135,27 +185,7 @@ class Item {
             .(($c = $this->pub_date)?'<pubDate>'.date(DATE_RFC822,$c).'</pubDate>':'')
             .$this->relatedToString()
             .$this->metricsToString()
-            .'<turbo:content><![CDATA['.$this->headerToString().'
-                    <p>Как хорошо начать день? Вкусно и полезно позавтракать!</p>
-                    <p>Приходите к нам на завтрак. Фотографии наших блюд ищите <a href="#">на нашем сайте</a>.</p>
-                    <h2>Меню</h2>
-                    <figure>
-                        <img src="https://avatars.mds.yandex.net/get-sbs-sd/369181/49e3683c-ef58-4067-91f9-786222aa0e65/orig">
-                        <figcaption>Омлет с травами</figcaption>
-                    </figure> 
-                    <p>В нашем меню всегда есть свежие, вкусные и полезные блюда.</p>
-                    <p>Убедитесь в этом сами.</p>
-                    <button formaction="tel:+7(123)456-78-90" data-background-color="#5B97B0" data-color="white" data-primary="true">Заказать столик</button>
-                    <div data-block="widget-feedback" data-stick="false">
-                        <div data-block="chat" data-type="whatsapp" data-url="https://whatsapp.com"></div>
-                        <div data-block="chat" data-type="telegram" data-url="http://telegram.com/"></div>
-                        <div data-block="chat" data-type="vkontakte" data-url="https://vk.com/"></div>
-                        <div data-block="chat" data-type="facebook" data-url="https://facebook.com"></div>
-                        <div data-block="chat" data-type="viber" data-url="https://viber.com"></div>
-                    </div>
-                    <p>Наш адрес: <a href="#">Nullam dolor massa, porta a nulla in, ultricies vehicula arcu.</a></p>
-                    <p>Фотографии — http://unsplash.com</p>
-                ]]></turbo:content></item>';
+            .'<turbo:content><![CDATA['.$this->headerToString().$this->content.']]></turbo:content></item>';
     }
 
 }

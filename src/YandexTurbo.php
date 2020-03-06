@@ -47,6 +47,26 @@ class YandexTurbo {
     /** @var Item[] - массив страниц */
     private $items = [];
 
+    /** @var array  */
+    private $ad_network_yandex = [];
+    /** @var array  */
+    private $ad_network_adfox = [];
+
+    /**
+     * @param string $block_id
+     * @param string $turbo_ad_id
+     * @return $this
+     */
+    function addAdNetworkYandex(string $block_id,string $turbo_ad_id){ $this->ad_network_yandex[] = [$block_id,$turbo_ad_id]; return $this;}
+
+    /**
+     * @param string $turbo_ad_id
+     * @param string $code
+     * @return $this
+     */
+    function addAdNetworkAdFox(string $turbo_ad_id,string $code){ $this->ad_network_adfox[] = [$turbo_ad_id,$code]; return $this;}
+
+
     /**
      * @param $id string | int номер счётчика
      * @param array $params array | \stdClass
@@ -91,12 +111,6 @@ class YandexTurbo {
     function addCustomMetric( $url ){ $this->analytics[] = new CustomMetric($url); return $this;}
 
 
-    private function analyticsToString():string{
-        $res ='';
-        foreach ($this->analytics as $v) $res .= $v;
-        return $res;
-    }
-
     /**
      * @param $title string
      * @return $this
@@ -127,11 +141,35 @@ class YandexTurbo {
 
     public function addItem(Item $item){ if($item) $this->items[] = $item; }
 
-    public function itemsToString(){
+
+    /**
+     * @return string
+     */
+    private function analyticsToString():string{
+        $res ='';
+        foreach ($this->analytics as $v) $res .= $v;
+        return $res;
+    }
+
+    /**
+     * @return string
+     */
+    private function itemsToString():string{
         $res = '';
         foreach ($this->items as $v){ $res .= $v; }
         return $res;
     }
+
+    /**
+     * @return string
+     */
+    private function adNetworkToString():string{
+        $res = '';
+        foreach ($this->ad_network_yandex as $v){ $res .= '<turbo:adNetwork type="Yandex" id="'.$v[0].'" turbo-ad-id="'.$v[1].'"></turbo:adNetwork>'; }
+        foreach ($this->ad_network_adfox as $v){ $res .= '<turbo:adNetwork type="AdFox" turbo-ad-id="'.$v[0].'"><![CDATA['.$v[1].']]></turbo:adNetwork>'; }
+        return $res;
+    }
+
 
     public function echoXml(){
         header("Content-Type: text/xml");
@@ -145,16 +183,17 @@ class YandexTurbo {
     }
 
     public function __toString() {
-        return '<?xml version="1.0" encoding="UTF-8"?>'."\n"
-.'<rss xmlns:yandex="http://news.yandex.ru"
-     xmlns:media="http://search.yahoo.com/mrss/"
-     xmlns:turbo="http://turbo.yandex.ru"
-     version="2.0"><channel>'
+        return '<?xml version="1.0" encoding="UTF-8"?>'
+        .'<rss xmlns:yandex="http://news.yandex.ru"
+             xmlns:media="http://search.yahoo.com/mrss/"
+             xmlns:turbo="http://turbo.yandex.ru"
+             version="2.0"><channel>'
             .(($c = $this->title)?'<title>'.$c.'</title>':'')
             .(($c = $this->link)?'<link>'.$c.'</link>':'')
             .(($c = $this->description)?'<description>'.$c.'</description>':'')
             .(($c = $this->language)?'<language>'.$c.'</language>':'')
             .$this->analyticsToString()
+            .$this->adNetworkToString()
             .$this->itemsToString()
         .'</channel></rss>';
     }
