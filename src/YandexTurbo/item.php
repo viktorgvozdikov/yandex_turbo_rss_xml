@@ -131,7 +131,6 @@ class Item {
      */
     public function setPubDate(int $time) { $this->pub_date = $time; return $this; }
 
-
     /**
      * @return string
      */
