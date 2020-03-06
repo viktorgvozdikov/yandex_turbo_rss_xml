@@ -9,6 +9,7 @@ use ModuleBZ\YandexTurbo\Analytics\MailRu;
 use ModuleBZ\YandexTurbo\Analytics\MediaScope;
 use ModuleBZ\YandexTurbo\Analytics\RamblerTop;
 use ModuleBZ\YandexTurbo\Analytics\YandexMetrica;
+use ModuleBZ\YandexTurbo\Item;
 
 class YandexTurbo {
     public function __construct() {
@@ -42,6 +43,9 @@ class YandexTurbo {
      * @var array массив для turbo:analytics
      */
     private $analytics = [];
+
+    /** @var Item[] - массив страниц */
+    private $items = [];
 
     /**
      * @param $id string | int номер счётчика
@@ -120,6 +124,26 @@ class YandexTurbo {
      */
     public function setLanguage($language)         {$this->language = $language;        return $this;}
 
+
+    public function addItem(Item $item){ if($item) $this->items[] = $item; }
+
+    public function itemsToString(){
+        $res = '';
+        foreach ($this->items as $v){ $res .= $v; }
+        return $res;
+    }
+
+    public function echoXml(){
+        header("Content-Type: text/xml");
+        //header("Expires: Thu, 19 Feb 1998 13:24:18 GMT");
+        header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Cache-Control: post-check=0,pre-check=0");
+        header("Cache-Control: max-age=0");
+        header("Pragma: no-cache");
+        echo $this;
+    }
+
     public function __toString() {
         return '<?xml version="1.0" encoding="UTF-8"?>'."\n"
 .'<rss xmlns:yandex="http://news.yandex.ru"
@@ -131,6 +155,7 @@ class YandexTurbo {
             .(($c = $this->description)?'<description>'.$c.'</description>':'')
             .(($c = $this->language)?'<language>'.$c.'</language>':'')
             .$this->analyticsToString()
+            .$this->itemsToString()
         .'</channel></rss>';
     }
 }
