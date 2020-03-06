@@ -5,7 +5,7 @@
 ```composer require modulebz/yandex_turbo_rss_xml```
 
 ```php
-<?
+<?php
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Item;
 
@@ -85,4 +85,88 @@ $turbo->echoXml();
 // Или сначала смотрим получившийся код в формате строки
 ///echo htmlspecialchars($turbo);
 
+```
+### Результат
+
+```xhtml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:yandex="http://news.yandex.ru"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:turbo="http://turbo.yandex.ru"
+     version="2.0">
+    <channel><title>Первый тест</title>
+        <link>
+        https://ya.ru</link>
+        <description>Описание канала</description>
+        <language>ru</language>
+        <turbo:analytics type="Yandex" id="5000" params='{"a":"b"}'></turbo:analytics>
+        <turbo:analytics type="LiveInternet" params="hello"></turbo:analytics>
+        <turbo:analytics type="Google" id="5000"></turbo:analytics>
+        <turbo:analytics type="MailRu" id="7500"></turbo:analytics>
+        <turbo:analytics type="Rambler" id="10000"></turbo:analytics>
+        <turbo:analytics type="Mediascope" id="12000"></turbo:analytics>
+        <turbo:analytics type="custom" url="https://ya.ru/"></turbo:analytics>
+        <turbo:adNetwork type="Yandex" id="идентификатор блока" turbo-ad-id="first_ad_place"></turbo:adNetwork>
+        <turbo:adNetwork type="AdFox" turbo-ad-id="second_ad_place"><![CDATA[
+            <div id="идентификатор контейнера"></div>
+            <script> window.Ya.adfoxCode.create({
+                    ownerId: 123456,
+                    containerId: 'идентификатор контейнера',
+                    params: {pp: 'g', ps: 'cmic', p2: 'fqem'}
+                }); </script>
+            ]]>
+        </turbo:adNetwork>
+        <item turbo="true">
+            <author>Виктор</author>
+            <turbo:source>https://source.ru</turbo:source>
+            <turbo:topic>topic</turbo:topic>
+            <link>
+            https://gvozdikov.net</link>
+            <pubDate>Fri, 06 Mar 20 15:54:19 +0300</pubDate>
+            <yandex:related type="infinity">
+                <link url="https://gvozdikov.net/about">
+                Обо мне</link>
+                <link url="https://gvozdikov.net/portfolio"
+                      img="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg">
+                Портфолио</link></yandex:related>
+            <metrics>
+                <yandex schema_identifier="100">
+                    <breadcrumblist>
+                        <breadcrumb url="https://gvozdikov.net" text="Главная"/>
+                        <breadcrumb url="https://gvozdikov.net/log" text="Разное"/>
+                    </breadcrumblist>
+                </yandex>
+            </metrics>
+            <turbo:content><![CDATA[
+                <header><h1>Первая новость</h1>
+                    <h2>Подзаголовок</h2>
+                    <figure><img src="https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg"></figure>
+                    <menu><a href="https://gvozdikov.net">Пукнт 1</a><a href="https://gvozdikov.net">Пукнт 2</a><a
+                            href="https://gvozdikov.net">Пукнт 3</a></menu>
+                </header>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>
+                <p>Тут будет контент новости</p>]]>
+            </turbo:content>
+        </item>
+    </channel>
+</rss>
 ```

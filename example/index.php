@@ -1,4 +1,4 @@
-<?
+<?php
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Item;
 
