@@ -73,7 +73,7 @@ $turbo->addItem(
     ->setTurboTopic('topic')
 );
 
-// Выводим сразу xml файл
+// Выводим сразу xml файл с необходимыми заголовками
 $turbo->echoXml();
 // Или сначала смотрим получившийся код в формате строки
 ///echo htmlspecialchars($turbo);

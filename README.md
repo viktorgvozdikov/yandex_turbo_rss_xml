@@ -1,8 +1,12 @@
-# Генератор yandex turbo страниц в формате xml
+# Генерация rss в формате xml для яндекс turbo
 
 ## Установка
 
 ```composer require modulebz/yandex_turbo_rss_xml```
+
+### Пример использования 
+
+Тут приведены все возможные функции для генерации 
 
 ```php
 <?php
@@ -80,7 +84,7 @@ $turbo->addItem(
     ->setTurboTopic('topic')
 );
 
-// Выводим сразу xml файл
+// Выводим сразу xml файл с необходимыми заголовками
 $turbo->echoXml();
 // Или сначала смотрим получившийся код в формате строки
 ///echo htmlspecialchars($turbo);
