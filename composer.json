@@ -1,7 +1,7 @@
 {
   "name":"modulebz/yandex_turbo_rss_xml",
   "description": "Генерация rss в формате xml для яндекс turbo",
-  "version": "1.0",
+  "version": "1.0.1",
   "keywords": ["php","yandex","turbo"],
   "homepage": "https://module.bz",
   "license": "MIT",
