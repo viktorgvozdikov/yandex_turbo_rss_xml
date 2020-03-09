@@ -37,7 +37,7 @@ class YandexTurbo {
      * @link https://packagist.org/packages/modulebz/iso
      * @var string Язык статьи по стандарту ISO 639-1
      */
-    var $language;
+    var $language = 'ru';
 
     /**
      * @var array массив для turbo:analytics

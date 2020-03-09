@@ -46,7 +46,7 @@ $turbo->addItem(
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 1')
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 2')
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 3')
-    // Указываем хлебные крошки
+    // Указываем хлебные крошки  статьи
     ->addHeaderBreadcrumbs('https://gvozdikov.net','Главная')
     ->addHeaderBreadcrumbs('https://gvozdikov.net/usefull','Полезное')
     ->addHeaderBreadcrumbs('https://gvozdikov.net/usefull/page1','Страница 1')
