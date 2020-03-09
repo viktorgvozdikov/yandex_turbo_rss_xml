@@ -21,6 +21,7 @@ class Item {
     protected $related = [];
     /** @var array Дополнительная информация о странице. Используется для связывания контентной информации на основной и Турбо‑странице сайта. */
     protected $metrics_breadcrumbs = [];
+
     /**
      * @link https://yandex.ru/support/metrica/publishers/schema-org/microdata.html#microdata__identifier-desc
      * @var string  schema_identifier — идентификатор, который указан на основной странице.
@@ -36,6 +37,8 @@ class Item {
     protected $header_img;
     /** @var array меню для заголовка*/
     protected $header_menu = [];
+    /** @var array хлебные крошки в заголовок */
+    protected $header_breadcrumbs = [];
 
     /**
      * @param string $h1
@@ -61,6 +64,13 @@ class Item {
      * @return $this
      */
     public function addHeaderMenu(string $url,string $name){$this->header_menu[] = [$url,$name]; return $this;}
+
+    /**
+     * @param string $url
+     * @param string $name
+     * @return $this
+     */
+    public function addHeaderBreadcrumbs(string $url,string $name){$this->header_breadcrumbs[] = [$url,$name]; return $this;}
 
     /**
      * @param string $content
@@ -172,6 +182,7 @@ class Item {
                     .(($c = $this->header_h2)?'<h2>'.$c.'</h2>':'')
                     .(($c = $this->header_img)?'<figure><img src="'.$c.'"></figure>':'')
                     .(($c = $this->header_menu)?'<menu>'.implode(array_map(function($v){return '<a href="'.$v[0].'">'.$v[1].'</a>';},$this->header_menu)).'</menu>':'')
+                    .(($c = $this->header_breadcrumbs)?'<div data-block="breadcrumblist">'.implode(array_map(function($v){return '<a href="'.$v[0].'">'.$v[1].'</a>';},$this->header_breadcrumbs)).'</div>':'')
                 .'</header>';
     }
 

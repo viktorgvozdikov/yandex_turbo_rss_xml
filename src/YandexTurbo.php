@@ -184,10 +184,7 @@ class YandexTurbo {
 
     public function __toString() {
         return '<?xml version="1.0" encoding="UTF-8"?>'
-        .'<rss xmlns:yandex="http://news.yandex.ru"
-             xmlns:media="http://search.yahoo.com/mrss/"
-             xmlns:turbo="http://turbo.yandex.ru"
-             version="2.0"><channel>'
+        .'<rss xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/" xmlns:turbo="http://turbo.yandex.ru" version="2.0"><channel>'
             .(($c = $this->title)?'<title>'.$c.'</title>':'')
             .(($c = $this->link)?'<link>'.$c.'</link>':'')
             .(($c = $this->description)?'<description>'.$c.'</description>':'')

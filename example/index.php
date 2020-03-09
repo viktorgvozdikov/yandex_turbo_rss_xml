@@ -19,7 +19,7 @@ $turbo = (new YandexTurbo())
     // Добавление метрики: LiveInternet
     ->addLiveInternet('hello')
     // Добавление метрики: GoogleAnalytics
-    ->addGoogleAnalytics(5000)
+    ->addGoogleAnalytics(50005)
     // Добавление метрики: Mail.ru
     ->addMailRu(7500)
     // Добавление метрики: Rambler Top
@@ -46,6 +46,10 @@ $turbo->addItem(
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 1')
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 2')
     ->addHeaderMenu('https://gvozdikov.net','Пукнт 3')
+    // Указываем хлебные крошки
+    ->addHeaderBreadcrumbs('https://gvozdikov.net','Главная')
+    ->addHeaderBreadcrumbs('https://gvozdikov.net/usefull','Полезное')
+    ->addHeaderBreadcrumbs('https://gvozdikov.net/usefull/page1','Страница 1')
     // Указываем дату публикации
     ->setPubDate(time())
     // Укаызваем ссылку на статью
