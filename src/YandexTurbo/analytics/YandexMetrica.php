@@ -1,6 +1,6 @@
 <?php
 
-namespace ModuleBZ\YandexTurbo\Analytics;
+namespace ModuleBZ\YandexTurbo\analytics;
 
 class YandexMetrica {
     var $id;
