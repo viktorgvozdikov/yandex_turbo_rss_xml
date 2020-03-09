@@ -1,6 +1,6 @@
 <?php
 
-namespace ModuleBZ\YandexTurbo\analytics;
+namespace ModuleBZ\YandexTurbo\Analytics;
 
 class LiveInternet {
     /** @var string  */

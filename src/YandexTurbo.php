@@ -2,13 +2,13 @@
 
 namespace ModuleBZ;
 
-use ModuleBZ\YandexTurbo\analytics\CustomMetric;
-use ModuleBZ\YandexTurbo\analytics\GoogleAnalytics;
-use ModuleBZ\YandexTurbo\analytics\LiveInternet;
-use ModuleBZ\YandexTurbo\analytics\MailRu;
-use ModuleBZ\YandexTurbo\analytics\MediaScope;
-use ModuleBZ\YandexTurbo\analytics\RamblerTop;
-use ModuleBZ\YandexTurbo\analytics\YandexMetrica;
+use ModuleBZ\YandexTurbo\Analytics\CustomMetric;
+use ModuleBZ\YandexTurbo\Analytics\GoogleAnalytics;
+use ModuleBZ\YandexTurbo\Analytics\LiveInternet;
+use ModuleBZ\YandexTurbo\Analytics\MailRu;
+use ModuleBZ\YandexTurbo\Analytics\MediaScope;
+use ModuleBZ\YandexTurbo\Analytics\RamblerTop;
+use ModuleBZ\YandexTurbo\Analytics\YandexMetrica;
 use ModuleBZ\YandexTurbo\Item;
 
 class YandexTurbo {

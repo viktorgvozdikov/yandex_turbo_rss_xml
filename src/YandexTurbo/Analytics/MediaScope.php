@@ -1,8 +1,8 @@
 <?php
 
-namespace ModuleBZ\YandexTurbo\analytics;
+namespace ModuleBZ\YandexTurbo\Analytics;
 
-class MailRu {
+class MediaScope {
     /** @var int | string */
     var $id;
 
@@ -14,7 +14,7 @@ class MailRu {
         $this->id = $id;
     }
     public function __toString() {
-        return '<turbo:analytics type="MailRu" id="'.$this->id.'"></turbo:analytics>';
+        return '<turbo:analytics type="Mediascope" id="'.$this->id.'"></turbo:analytics>';
     }
 
 }

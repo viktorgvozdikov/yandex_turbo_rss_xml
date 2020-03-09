@@ -1,8 +1,8 @@
 <?php
 
-namespace ModuleBZ\YandexTurbo\analytics;
+namespace ModuleBZ\YandexTurbo\Analytics;
 
-class GoogleAnalytics {
+class MailRu {
     /** @var int | string */
     var $id;
 
@@ -14,7 +14,7 @@ class GoogleAnalytics {
         $this->id = $id;
     }
     public function __toString() {
-        return '<turbo:analytics type="Google" id="'.$this->id.'"></turbo:analytics>';
+        return '<turbo:analytics type="MailRu" id="'.$this->id.'"></turbo:analytics>';
     }
 
 }

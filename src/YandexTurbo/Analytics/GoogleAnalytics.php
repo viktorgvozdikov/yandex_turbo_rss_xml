@@ -1,8 +1,8 @@
 <?php
 
-namespace ModuleBZ\YandexTurbo\analytics;
+namespace ModuleBZ\YandexTurbo\Analytics;
 
-class MediaScope {
+class GoogleAnalytics {
     /** @var int | string */
     var $id;
 
@@ -14,7 +14,7 @@ class MediaScope {
         $this->id = $id;
     }
     public function __toString() {
-        return '<turbo:analytics type="Mediascope" id="'.$this->id.'"></turbo:analytics>';
+        return '<turbo:analytics type="Google" id="'.$this->id.'"></turbo:analytics>';
     }
 
 }
