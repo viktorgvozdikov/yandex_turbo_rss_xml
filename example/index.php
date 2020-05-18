@@ -1,6 +1,7 @@
 <?php
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
+use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Item;
 
 include_once "../vendor/autoload.php";
@@ -84,6 +85,15 @@ $turbo->addItem(
             ,['alt'=>'Картинка','width'=>'200px']
             ,['style'=>'color:red']
         )
+
+        // Добавляем аккардион
+        ->addAccordion((new Accordion())
+            // Добавляем пункты в аккардеон
+            ->addItem('О чём проект','<p>Это очень интересный проект</p>')
+            ->addItem('Как оплатить','<p>Пока никак, но скоро как-нибудь можно будет</p>',true)
+            ->addItem('Контакты','<p>Есть контакт</p>')
+        )
+
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)

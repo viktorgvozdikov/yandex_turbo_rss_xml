@@ -2,6 +2,7 @@
 
 namespace ModuleBZ\YandexTurbo;
 
+use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Image;
 
 class Content {
@@ -33,6 +34,17 @@ class Content {
         $this->content[] = new Image($src,$header,$img_attributes,$header_attributes);
         return $this;
     }
+
+    /**
+     * Добавление аккордиона
+     * @param Accordion $accordion
+     * @return $this
+     */
+    function addAccordion(Accordion $accordion){
+        $this->content[] = $accordion;
+        return $this;
+    }
+
 
     public function __toString() {
         return implode("",$this->content);
