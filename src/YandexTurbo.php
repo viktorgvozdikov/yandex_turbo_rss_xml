@@ -52,6 +52,21 @@ class YandexTurbo {
     /** @var array  */
     private $ad_network_adfox = [];
 
+
+    /**
+     * Функция для генерации аттрибутов для элементов
+     * @param array $attributes
+     * @return string
+     */
+    static function renderAttribute($attributes = []){
+        $res = [];
+        foreach ($attributes as $k=>$v){
+            $res[] = $k.($v?'="'.htmlspecialchars($v).'"':'');
+        }
+        return implode(" ",$res);
+    }
+
+
     /**
      * @param string $block_id
      * @param string $turbo_ad_id

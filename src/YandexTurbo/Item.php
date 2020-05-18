@@ -73,7 +73,7 @@ class Item {
     public function addHeaderBreadcrumbs(string $url,string $name){$this->header_breadcrumbs[] = [$url,$name]; return $this;}
 
     /**
-     * @param string $content
+     * @param string|Content $content
      * @return $this
      */
     public function setContent(string $content){$this->content = $content; return $this;}

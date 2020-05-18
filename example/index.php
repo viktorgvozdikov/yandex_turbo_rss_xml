@@ -1,5 +1,6 @@
 <?php
 use ModuleBZ\YandexTurbo;
+use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Item;
 
 include_once "../vendor/autoload.php";
@@ -10,7 +11,7 @@ $turbo = (new YandexTurbo())
     // Добавление описания
     ->setDescription('Описание канала')
     // Указание ссылки на сайт
-    ->setLink( 'https://ya.ru')
+    ->setLink( 'https://gvozdikov.net')
     // Установка языка
     ->setLanguage( \ModuleBZ\ISO\enum\ISO639_1::_RU)
     // Добавление различных метрик
@@ -33,6 +34,14 @@ $turbo = (new YandexTurbo())
     // Подключение реклмного блока adfox
     ->addAdNetworkAdFox('second_ad_place',"<div id=\"идентификатор контейнера\"></div><script> window.Ya.adfoxCode.create({ ownerId: 123456, containerId: 'идентификатор контейнера', params: { pp: 'g', ps: 'cmic', p2: 'fqem' } }); </script>")
 ;
+
+// Формиурем заготовленные блоки контента, которые часто повторяются в статьх.
+// Например формы обратной связи, ссылки на соц. сети. и т.д.
+$form = (new Content())
+    ->addHtml('<p>Если у вас остались вопросы, то вы можете их задать нам в этой форме обратной связи</p>');
+
+
+
 // Добавляем новую статью в RSS
 $turbo->addItem(
     (new Item())
@@ -57,7 +66,28 @@ $turbo->addItem(
     // Укаызваем автора статьи
     ->setAuthor('Виктор')
     // Задаём контент новости
-    ->setContent(str_repeat('<p>Тут будет контент новости</p>',20))
+    ->setContent( (new Content())
+        // Добавляем просто html inline-блоки
+        ->addHtml('<p>Привет, меня зовут Виктор.</p>')
+
+        // Добавляем просто картинку без подписи
+        ->addImage('https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png')
+        // Добавляем просто картинку с подписью
+        ->addImage(
+            'https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'
+                ,'Как во Flutter установить цвет текста для AppBar.'
+        )
+        // Добавляем просто картинку с подписью и дополнительными аттрибутыми для картинки и заголовка. Аттрибуты яндекс проигнорирует, но они могут быть нужны для версии статьи на сайте
+        ->addImage(
+            'https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'
+            ,'Как во Flutter установить цвет текста для AppBar.'
+            ,['alt'=>'Картинка','width'=>'200px']
+            ,['style'=>'color:red']
+        )
+
+        // Добавляем блоки, которые у нас повторяются во всех статьях
+        ->addContent($form)
+    )
     // Укзаываем, это турбо статья, по умолчанию true
     ->setIsTurbo(true)
     // Указываем как подгружать схожие статьи
