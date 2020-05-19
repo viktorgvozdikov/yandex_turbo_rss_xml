@@ -21,12 +21,23 @@ class Image {
      * @param array $img_attributes
      * @param array $header_attributes
      */
-    public function __construct(string $src,string $header=null,$img_attributes=[],$header_attributes=[]) {
+    public function __construct(string $src=null,string $header=null,$img_attributes=[],$header_attributes=[]) {
         $this->src = $src;
         $this->header = $header;
         $this->img_attributes = $img_attributes;
         $this->header_attributes = $header_attributes;
     }
+
+    /**
+     * Указание URL к картинке
+     * @param string $src
+     * @return Image
+     */
+    public function setSrc(string $src) {
+        $this->src = $src;
+        return $this;
+    }
+
     public function __toString() {
         $img = '<img src="'.$this->src.'" '.YandexTurbo::renderAttribute($this->img_attributes).'/>';
         if ($this->header){

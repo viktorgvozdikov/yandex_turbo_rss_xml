@@ -3,7 +3,9 @@
 namespace ModuleBZ\YandexTurbo;
 
 use ModuleBZ\YandexTurbo\Element\Accordion;
+use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Video;
 
 class Content {
     protected $content = [];
@@ -24,14 +26,22 @@ class Content {
 
     /**
      * Добавление картинки, с заголовком или без
-     * @param string $src
-     * @param string|null $header
-     * @param array $img_attributes
-     * @param array $header_attributes
+     * @param Image $image
      * @return $this
      */
-    function addImage(string $src,string $header=null,$img_attributes=[],$header_attributes=[]){
-        $this->content[] = new Image($src,$header,$img_attributes,$header_attributes);
+    function addImage(Image $image){
+        $this->content[] = $image;
+        return $this;
+    }
+
+
+    /**
+     * Добавление видео
+     * @param Video $video
+     * @return $this
+     */
+    function addVideo(Video $video){
+        $this->content[] = $video;
         return $this;
     }
 
@@ -42,6 +52,16 @@ class Content {
      */
     function addAccordion(Accordion $accordion){
         $this->content[] = $accordion;
+        return $this;
+    }
+
+    /**
+     * Добавляем аудио
+     * @param Audio $audio
+     * @return $this
+     */
+    function addAudio(Audio $audio){
+        $this->content[] = $audio;
         return $this;
     }
 

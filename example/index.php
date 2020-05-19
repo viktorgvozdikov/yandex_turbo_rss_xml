@@ -2,6 +2,9 @@
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
+use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Video;
 use ModuleBZ\YandexTurbo\Item;
 
 include_once "../vendor/autoload.php";
@@ -72,19 +75,27 @@ $turbo->addItem(
         ->addHtml('<p>Привет, меня зовут Виктор.</p>')
 
         // Добавляем просто картинку без подписи
-        ->addImage('https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png')
+        ->addImage(new Image('https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'))
         // Добавляем просто картинку с подписью
-        ->addImage(
-            'https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'
-                ,'Как во Flutter установить цвет текста для AppBar.'
-        )
-        // Добавляем просто картинку с подписью и дополнительными аттрибутыми для картинки и заголовка. Аттрибуты яндекс проигнорирует, но они могут быть нужны для версии статьи на сайте
-        ->addImage(
+        ->addImage(new Image(
             'https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'
             ,'Как во Flutter установить цвет текста для AppBar.'
-            ,['alt'=>'Картинка','width'=>'200px']
-            ,['style'=>'color:red']
+            )
         )
+        // Добавляем просто картинку с подписью и дополнительными аттрибутыми для картинки и заголовка. Аттрибуты яндекс проигнорирует, но они могут быть нужны для версии статьи на сайте
+        ->addImage(new Image(
+            'https://gvozdikov.net/upload/images/acc1/1583066709_6113933_0500_95_0_1.png'
+                ,'Как во Flutter установить цвет текста для AppBar.'
+                ,['alt'=>'Картинка','width'=>'200px']
+                ,['style'=>'color:red']
+            )
+        )
+
+        // Добавляем аудио
+        ->addAudio(new Audio('https://clck.ru/MJY6J'))
+
+        // Добавляем видео
+        ->addVideo((new Video()))
 
         // Добавляем аккардион
         ->addAccordion((new Accordion())
@@ -93,6 +104,7 @@ $turbo->addItem(
             ->addItem('Как оплатить','<p>Пока никак, но скоро как-нибудь можно будет</p>',true)
             ->addItem('Контакты','<p>Есть контакт</p>')
         )
+
 
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
