@@ -4,6 +4,7 @@ namespace ModuleBZ\YandexTurbo;
 
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\Slider;
@@ -84,6 +85,16 @@ class Content {
      */
     function addAudio(Audio $audio){
         $this->content[] = $audio;
+        return $this;
+    }
+
+    /**
+     * Добавление списка карточек
+     * @param Cards $cards
+     * @return $this
+     */
+    function addCards(Cards $cards){
+        $this->content[] = $cards;
         return $this;
     }
 

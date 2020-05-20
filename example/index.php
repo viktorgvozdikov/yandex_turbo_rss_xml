@@ -3,6 +3,8 @@ use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Card;
+use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\Slider;
@@ -148,6 +150,37 @@ $turbo->addItem(
             ->addTurboAdID('123456')
             // Добавляем ссылку в слайдер
             ->addLink('https://gvozdikov.net','Читайте мой блог')
+        )
+
+
+        // Добавляем карточки на страницу
+        ->addCards((new Cards())
+            // Добавляем карточку
+            ->addCard((new Card())
+                // Указываем картинку в шапку
+                ->setHeaderImage('https://clck.ru/FFAuR')
+                // Указываем текст в шапке
+                ->setHeaderTitle('Заголовок карточки')
+                // Задаём контет в карточке
+                ->setContent('<p>Это мой контент</p><p><b>А это </b><i>вторая </i><del>карточка</del> <ins>строка</ins></p>')
+                // Указываем ссылку в подвале
+                ->setFooter('http://gvozdikov.net/','Продолжение')
+                // Указываем ссылку "читать ещё"
+                ->setMore('http://gvozdikov.net/','Читать ещё')
+            )
+            // Добавляем вторую карточку для красоты примера
+            ->addCard((new Card())
+                // Указываем картинку в шапку
+                ->setHeaderImage('https://clck.ru/FFAuR')
+                // Указываем текст в шапке
+                ->setHeaderTitle('Заголовок карточки')
+                // Задаём контет в карточке
+                ->setContent('<p>Это мой контент</p><p><b>А это </b><i>вторая </i><del>карточка</del> <ins>строка</ins></p>')
+                // Указываем ссылку в подвале
+                ->setFooter('http://gvozdikov.net/','Продолжение')
+                // Указываем ссылку "читать ещё"
+                ->setMore('http://gvozdikov.net/','Читать ещё')
+            )
         )
 
 
