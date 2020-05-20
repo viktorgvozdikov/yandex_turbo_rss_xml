@@ -3,7 +3,9 @@ use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Video;
 use ModuleBZ\YandexTurbo\Item;
 
@@ -69,6 +71,24 @@ $turbo->addItem(
     ->setLink('https://gvozdikov.net')
     // Укаызваем автора статьи
     ->setAuthor('Виктор')
+    // Укзаываем, это турбо статья, по умолчанию true
+    ->setIsTurbo(true)
+    // Указываем как подгружать схожие статьи
+    ->setRelatedInfinity(true)
+    // Указываем схожие статьи
+    ->addRelated('https://gvozdikov.net/about','Обо мне')
+    ->addRelated('https://gvozdikov.net/portfolio','Портфолио','https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg')
+    // указываем идентификатор статьи
+    ->addMetricsYandexSchemaIdentifier(100)
+    // Указываем рубрики
+    ->addMetricsBreadcrumb('https://gvozdikov.net','Главная')
+    // Указываем рубрики
+    ->addMetricsBreadcrumb('https://gvozdikov.net/log','Разное')
+    // Указываем URL страницы-источника, который можно передать в Яндекс.Метрику.
+    ->setTurboSource('https://source.ru')
+    // Указываем заголовок страницы, который можно передать в Яндекс.Метрику.
+    ->setTurboTopic('topic')
+
     // Задаём контент новости
     ->setContent( (new Content())
         // Добавляем просто html inline-блоки
@@ -91,11 +111,19 @@ $turbo->addItem(
             )
         )
 
+        // Добавляем галерею
+        ->addGallery((new Gallery())
+            ->addImage('https://clck.ru/FFAuR')
+            ->addImage('https://clck.ru/FFAvn')
+            ->setHeader('Заголовок галереи')
+        )
+
+
         // Добавляем аудио
         ->addAudio(new Audio('https://clck.ru/MJY6J'))
 
         // Добавляем видео
-        ->addVideo((new Video()))
+        //->addVideo((new Video(300,200,"https://clck.ru/Kiunj",15)))
 
         // Добавляем аккардион
         ->addAccordion((new Accordion())
@@ -105,28 +133,27 @@ $turbo->addItem(
             ->addItem('Контакты','<p>Есть контакт</p>')
         )
 
+        ->addSlider((new Slider())
+            // Указываем заголовок слайдера
+            ->setHeader('Заголовок слайдера')
+            // Добавляем картинку
+            ->addImage((new Image('https://clck.ru/FFAuR')))
+            // Добавляем картинку с подписью
+            ->addImage((new Image('https://clck.ru/FFAuR','Картинка с подписью')))
+            // Добавляем видео в слайдер. При добавлении видео в слайдер, превью картинки обязательно
+            ->addVideo((new Video(300,200,"https://clck.ru/Kiunj",15,'https://clck.ru/FFAuR')))
+            // Добавляем видео с подпистб в слайдер. При добавлении видео в слайдер, превью картинки обязательно
+            ->addVideo((new Video(300,200,"https://clck.ru/Kiunj",15,'https://clck.ru/FFAuR','Видео с подписью')))
+            // Добавляем рекламный блок РСЯ в слайдеры
+            ->addTurboAdID('123456')
+            // Добавляем ссылку в слайдер
+            ->addLink('https://gvozdikov.net','Читайте мой блог')
+        )
 
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)
     )
-    // Укзаываем, это турбо статья, по умолчанию true
-    ->setIsTurbo(true)
-    // Указываем как подгружать схожие статьи
-    ->setRelatedInfinity(true)
-    // Указываем схожие статьи
-    ->addRelated('https://gvozdikov.net/about','Обо мне')
-    ->addRelated('https://gvozdikov.net/portfolio','Портфолио','https://gvozdikov.net/content/gvozdikov/pics/avatar.jpg')
-    // указываем идентификатор статьи
-    ->addMetricsYandexSchemaIdentifier(100)
-    // Указываем рубрики
-    ->addMetricsBreadcrumb('https://gvozdikov.net','Главная')
-    // Указываем рубрики
-    ->addMetricsBreadcrumb('https://gvozdikov.net/log','Разное')
-    // Указываем URL страницы-источника, который можно передать в Яндекс.Метрику.
-    ->setTurboSource('https://source.ru')
-    // Указываем заголовок страницы, который можно передать в Яндекс.Метрику.
-    ->setTurboTopic('topic')
 );
 
 // Выводим сразу xml файл с необходимыми заголовками

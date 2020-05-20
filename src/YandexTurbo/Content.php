@@ -4,7 +4,9 @@ namespace ModuleBZ\YandexTurbo;
 
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Video;
 
 class Content {
@@ -31,6 +33,26 @@ class Content {
      */
     function addImage(Image $image){
         $this->content[] = $image;
+        return $this;
+    }
+
+    /**
+     * Добавление галереи
+     * @param Gallery $gallery
+     * @return $this
+     */
+    function addGallery(Gallery $gallery){
+        $this->content[] = $gallery;
+        return $this;
+    }
+
+    /**
+     * Добавление слайдера в галерею
+     * @param Slider $slider
+     * @return $this
+     */
+    function addSlider(Slider $slider){
+        $this->content[] = $slider;
         return $this;
     }
 
@@ -64,7 +86,6 @@ class Content {
         $this->content[] = $audio;
         return $this;
     }
-
 
     public function __toString() {
         return implode("",$this->content);

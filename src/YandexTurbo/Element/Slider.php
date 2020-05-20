@@ -44,8 +44,47 @@ class Slider {
      */
     public function setHeader(string $header) { $this->header = $header; return $this; }
 
-    function addSlide(){
+    /**
+     * Добавление видео в слайдер
+     * При добавлении видео в слайдер - превью-картинка обязательна
+     * @param Video $video
+     * @return $this
+     */
+    function addVideo(Video $video){
+        $this->slides[] = $video;
+        return $this;
+    }
 
+    /**
+     * Добавление картинки в слайдер
+     * @param Image $image
+     * @return $this
+     */
+    function addImage(Image $image){
+        $this->slides[] = $image;
+        return $this;
+    }
+
+
+    /**
+     * Добавление ссылки в слайдер
+     * @param string $url
+     * @param string $text
+     * @return $this
+     */
+    function addLink(string $url,string $text){
+        $this->slides[] = '<figure><a href="'.$url.'">'.$text.'</a></figure>';
+        return $this;
+    }
+
+    /**
+     * Добавление рекламного блока РСЯ
+     * @param string $turbo_ad_id
+     * @return $this
+     */
+    function addTurboAdID(string $turbo_ad_id = ''){
+        $this->slides[] = '<figure data-turbo-ad-id="'.$turbo_ad_id.'"></figure>';
+        return $this;
     }
 
     public function __toString() {
