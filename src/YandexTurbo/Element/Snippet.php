@@ -4,6 +4,6 @@ namespace ModuleBZ\YandexTurbo\Element;
 
 use ModuleBZ\YandexTurbo;
 
-class Carousel {
+class Snippet {
 
 }

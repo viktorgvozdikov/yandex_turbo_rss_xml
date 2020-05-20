@@ -19,7 +19,7 @@ $turbo = (new YandexTurbo())
     // Добавление описания
     ->setDescription('Описание канала')
     // Указание ссылки на сайт
-    ->setLink( 'https://gvozdikov.net')
+    ->setLink( 'https://gvozdikov.net/')
     // Установка языка
     ->setLanguage( \ModuleBZ\ISO\enum\ISO639_1::_RU)
     // Добавление различных метрик
@@ -182,7 +182,6 @@ $turbo->addItem(
                 ->setMore('http://gvozdikov.net/','Читать ещё')
             )
         )
-
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)
