@@ -9,6 +9,7 @@ use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Video;
 
@@ -120,6 +121,16 @@ class Content {
         return $this;
     }
 
+
+    /**
+     * Добавлание блока "поделиться". По умолчанию все кнопки включены
+     * @param Share $share
+     * @return $this
+     */
+    function addShare(Share $share = null){
+        $this->content[] = $share ? $share : new Share();
+        return $this;
+    }
 
 
     public function __toString() {

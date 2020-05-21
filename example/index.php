@@ -9,6 +9,7 @@ use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Snippet;
 use ModuleBZ\YandexTurbo\Element\Video;
@@ -198,6 +199,8 @@ $turbo->addItem(
 
 
 
+        // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке
+        ->addShare((new Share())->addVkontakte()->addTelegram()->addOdnoklassniki()->addFacebook()->addTwitter())
 
 
         // Добавляем блоки, которые у нас повторяются во всех статьях

@@ -24,9 +24,6 @@ class Link {
         return $this;
     }
 
-
-
-
     /**
      * Link constructor.
      * @param string $url
