@@ -12,6 +12,7 @@ use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Comment;
 use ModuleBZ\YandexTurbo\Element\Comments;
 use ModuleBZ\YandexTurbo\Element\Feed;
+use ModuleBZ\YandexTurbo\Element\Feedback;
 use ModuleBZ\YandexTurbo\Element\FeedItem;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
@@ -25,6 +26,7 @@ use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Snippet;
 use ModuleBZ\YandexTurbo\Element\Video;
+use ModuleBZ\YandexTurbo\Enum\EFeedbackStick;
 use ModuleBZ\YandexTurbo\Enum\EFeedItemThumbPosition;
 use ModuleBZ\YandexTurbo\Enum\EFeedItemThumbRatio;
 use ModuleBZ\YandexTurbo\Enum\EFeedLayout;
@@ -440,6 +442,33 @@ $turbo->addItem(
                 ->setContent('<p>Второй комментарий на сайте</p>')
             )
         )
+
+        // Добавление кнопок обратной связи - незакреплённые
+        ->addFeedback((new Feedback())
+            ->setTitle("Давайте пообщаемся")
+            ->setStick(EFeedbackStick::FALSE)
+            ->addCall('+7123456789')
+            ->addCallbackForm('mail@gvozdikov.net','ООО «Гвоздиков.нет»','https://gvozdikov.net/confidential/')
+            ->addEmail('mail@gvozdikov.net')
+            ->addChat()
+            ->addFacebook('https://ya.ru/')
+            ->addGoogle('https://ya.ru/')
+            ->addOdnoklassniki('https://ya.ru/')
+            ->addTelegram('https://ya.ru/')
+            ->addTwitter('https://ya.ru/')
+            ->addVkontakte('https://ya.ru/')
+            ->addWhatsapp('https://ya.ru/')
+        )
+
+        // Добавление кнопок обратной связи - закреплённые слева
+        ->addFeedback((new Feedback())
+            ->setTitle("Давайте пообщаемся")
+            ->addCall('+7123456789')
+            ->addCallbackForm('mail@gvozdikov.net','ООО «Гвоздиков.нет»','https://gvozdikov.net/confidential/')
+            ->addEmail('mail@gvozdikov.net')
+            ->addChat()
+        )
+
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)

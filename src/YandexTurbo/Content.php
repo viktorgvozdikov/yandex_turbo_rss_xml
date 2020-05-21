@@ -11,6 +11,7 @@ use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Comments;
 use ModuleBZ\YandexTurbo\Element\Feed;
+use ModuleBZ\YandexTurbo\Element\Feedback;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Histogram;
@@ -218,6 +219,16 @@ class Content {
      */
     function addComments(Comments $comments){
         $this->content[] = $comments;
+        return $this;
+    }
+
+    /**
+     * Добавление кнопок обратной связи
+     * @param Feedback $feedback
+     * @return $this
+     */
+    function addFeedback(Feedback $feedback){
+        $this->content[] = $feedback;
         return $this;
     }
 
