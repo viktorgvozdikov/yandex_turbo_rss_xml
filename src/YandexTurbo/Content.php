@@ -3,6 +3,7 @@
 namespace ModuleBZ\YandexTurbo;
 
 use ModuleBZ\YandexTurbo\Element\Accordion;
+use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
@@ -132,6 +133,15 @@ class Content {
         return $this;
     }
 
+    /**
+     * Добавляем рекламу яндекса
+     * @param Ad $ad
+     * @return $this
+     */
+    function addAd(Ad $ad){
+        $this->content[] = $ad;
+        return $this;
+    }
 
     /**
      * Добавлание блока "поделиться". По умолчанию все кнопки включены

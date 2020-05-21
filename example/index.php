@@ -2,6 +2,7 @@
 use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
+use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
@@ -256,6 +257,10 @@ $turbo->addItem(
                     ->setThumbRatio(EFeedItemThumbRatio::RATIO_4_3)
             )
         )
+
+        // Добавляем рекламу
+        ->addAd((new Ad())->setAdId('123456')->setMobile(true)->setDesktop(true))
+
 
 
         // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке
