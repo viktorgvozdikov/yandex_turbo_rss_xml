@@ -12,6 +12,7 @@ use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
+use ModuleBZ\YandexTurbo\Element\Histogram;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
 use ModuleBZ\YandexTurbo\Element\Rating;
@@ -196,6 +197,16 @@ class Content {
      */
     function addCallbackForm(CallbackForm $callbackForm){
         $this->content[] = $callbackForm;
+        return $this;
+    }
+
+    /**
+     * Добавление гистоагрмы
+     * @param Histogram $histogram
+     * @return $this
+     */
+    function addHistogram(Histogram $histogram){
+        $this->content[] = $histogram;
         return $this;
     }
 

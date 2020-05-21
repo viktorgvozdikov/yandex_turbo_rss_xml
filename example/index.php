@@ -13,6 +13,8 @@ use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\FeedItem;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
+use ModuleBZ\YandexTurbo\Element\Histogram;
+use ModuleBZ\YandexTurbo\Element\HistogramItem;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
 use ModuleBZ\YandexTurbo\Element\Rating;
@@ -363,10 +365,43 @@ $turbo->addItem(
             ->addTwitter()
         )
 
+        // Добавляем форму обратной связи
         ->addCallbackForm((new CallbackForm())
             ->setSendTo('mail@gvozdikov.net')
             ->setAgreementCompany('ООО «Гвоздиков.нет»')
             ->setAgreementLink('https://gvozdikov.net/confidential/')
+        )
+
+        // Добавляем гистограмму
+        ->addHistogram((new Histogram())
+            ->addItem((new HistogramItem())
+                ->setValue(5)
+                ->setHeight(5)
+                ->setTitle('ПН')
+                ->setColor('red')
+                ->setIcon('https://yastatic.net/weather/i/icons/funky/dark/skc_d.svg')
+            )
+            ->addItem((new HistogramItem())
+                ->setValue(50)
+                ->setHeight(10)
+                ->setTitle('ВТ')
+                ->setColor('blue')
+                ->setIcon('https://yastatic.net/weather/i/icons/funky/dark/skc_d.svg')
+            )
+            ->addItem((new HistogramItem())
+                ->setValue(200)
+                ->setHeight(15)
+                ->setTitle('СР')
+                ->setColor('green')
+                ->setIcon('https://yastatic.net/weather/i/icons/funky/dark/skc_d.svg')
+            )
+            ->addItem((new HistogramItem())
+                ->setValue(500)
+                ->setHeight(20)
+                ->setTitle('ЧТ')
+                ->setColor('purple')
+                ->setIcon('https://yastatic.net/weather/i/icons/funky/dark/skc_d.svg')
+            )
         )
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
