@@ -11,6 +11,7 @@ use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
+use ModuleBZ\YandexTurbo\Element\InPage;
 use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Video;
@@ -140,6 +141,16 @@ class Content {
      */
     function addAd(Ad $ad){
         $this->content[] = $ad;
+        return $this;
+    }
+
+    /**
+     * Добавляем InPage рекламу
+     * @param InPage $inPage
+     * @return $this
+     */
+    function addInPage(InPage $inPage){
+        $this->content[] = $inPage;
         return $this;
     }
 
