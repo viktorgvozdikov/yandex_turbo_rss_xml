@@ -9,6 +9,7 @@ use ModuleBZ\YandexTurbo\Element\Button;
 use ModuleBZ\YandexTurbo\Element\CallbackForm;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Comments;
 use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
@@ -207,6 +208,16 @@ class Content {
      */
     function addHistogram(Histogram $histogram){
         $this->content[] = $histogram;
+        return $this;
+    }
+
+    /**
+     * Добавление комментариев
+     * @param Comments $comments
+     * @return $this
+     */
+    function addComments(Comments $comments){
+        $this->content[] = $comments;
         return $this;
     }
 

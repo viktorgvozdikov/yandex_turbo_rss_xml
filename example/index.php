@@ -9,6 +9,8 @@ use ModuleBZ\YandexTurbo\Element\CallbackForm;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Comment;
+use ModuleBZ\YandexTurbo\Element\Comments;
 use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\FeedItem;
 use ModuleBZ\YandexTurbo\Element\Fold;
@@ -401,6 +403,41 @@ $turbo->addItem(
                 ->setTitle('ЧТ')
                 ->setColor('purple')
                 ->setIcon('https://yastatic.net/weather/i/icons/funky/dark/skc_d.svg')
+            )
+        )
+
+        // Добавляем комментарии
+        ->addComments((new Comments())
+            ->setUrl('https://gvozdikov.net/addComment.php')
+            ->addComment((new Comment())
+                ->setAuthor('Виктор')
+                ->setSubtitle('вчера')
+                ->setAvatarUrl('https://clck.ru/KyKNk')
+                ->setHeader('Заголовок')
+                ->setContent('<p>Первый комментарий на сайте</p>')
+                ->setComments((new Comments())
+                    ->addComment((new Comment())
+                        ->setAuthor('Виктор')
+                        ->setSubtitle('сегодня')
+                        ->setAvatarUrl('https://clck.ru/KyKNk')
+                        ->setHeader('Заголовок')
+                        ->setContent('<p>Первый подкомментарий на сайте</p>')
+                    )
+                    ->addComment((new Comment())
+                        ->setAuthor('Виктор')
+                        ->setSubtitle('сегодня')
+                        ->setAvatarUrl('https://clck.ru/KyKNk')
+                        ->setHeader('Заголовок')
+                        ->setContent('<p>Второй подкомментарий на сайте</p>')
+                    )
+                )
+            )
+            ->addComment((new Comment())
+                ->setAuthor('Виктор')
+                ->setSubtitle('вчера')
+                ->setAvatarUrl('https://clck.ru/KyKNk')
+                ->setHeader('Заголовок')
+                ->setContent('<p>Второй комментарий на сайте</p>')
             )
         )
 
