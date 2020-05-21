@@ -14,6 +14,7 @@ use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
+use ModuleBZ\YandexTurbo\Element\Search;
 use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Snippet;
@@ -315,6 +316,12 @@ $turbo->addItem(
             ->setDisabled(true)
         )
 
+        // Добавление формы поиска
+        ->addSearch((new Search())
+            ->setName('text')
+            ->setPlaceholder('Давайте что-нибудь поищем')
+            ->setAction('https://gvozdikov.net/search/?text={text}')
+        )
 
         // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке
         ->addShare((new Share())->addVkontakte()->addTelegram()->addOdnoklassniki()->addFacebook()->addTwitter())

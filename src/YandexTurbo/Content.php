@@ -13,6 +13,7 @@ use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
+use ModuleBZ\YandexTurbo\Element\Search;
 use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Video;
@@ -152,6 +153,16 @@ class Content {
      */
     function addInPage(InPage $inPage){
         $this->content[] = $inPage;
+        return $this;
+    }
+
+    /**
+     * Добавления поле ввода поиска
+     * @param Search $search
+     * @return $this
+     */
+    function addSearch(Search $search) {
+        $this->content[] = $search;
         return $this;
     }
 
