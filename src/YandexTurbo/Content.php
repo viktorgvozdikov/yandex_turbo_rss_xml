@@ -13,6 +13,7 @@ use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
+use ModuleBZ\YandexTurbo\Element\Rating;
 use ModuleBZ\YandexTurbo\Element\Search;
 use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
@@ -165,6 +166,17 @@ class Content {
         $this->content[] = $search;
         return $this;
     }
+
+    /**
+     * Добавление рейтинга
+     * @param Rating $rating
+     * @return $this
+     */
+    function addRating(Rating $rating){
+        $this->content[] = $rating;
+        return $this;
+    }
+
 
     /**
      * Добавление кнопки

@@ -14,6 +14,7 @@ use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\InPage;
+use ModuleBZ\YandexTurbo\Element\Rating;
 use ModuleBZ\YandexTurbo\Element\Search;
 use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
@@ -163,7 +164,6 @@ $turbo->addItem(
             ->setHeader('Заголовок галереи')
         )
 
-
         // Добавляем аудио
         ->addAudio(new Audio('https://clck.ru/MJY6J'))
 
@@ -292,10 +292,17 @@ $turbo->addItem(
         )
 
         // Добавляем рекламу
-        ->addAd((new Ad())->setAdId('123456')->setMobile(true)->setDesktop(true))
+        ->addAd((new Ad())
+            ->setAdId('123456')
+            ->setMobile(true)
+            ->setDesktop(true)
+        )
 
         // Добавляем рекламу InPage
-        ->addInPage((new InPage())->setAdId('123456')->setInpageAdId('64654654'))
+        ->addInPage((new InPage())
+            ->setAdId('123456')
+            ->setInpageAdId('64654654')
+        )
 
         // Добавляем кнопку, чтобы нам могли позвонить
         ->addButton((new Button())
@@ -323,8 +330,25 @@ $turbo->addItem(
             ->setAction('https://gvozdikov.net/search/?text={text}')
         )
 
+        // Добавление звёздочек рейтинга
+        ->addRating((new Rating())
+            ->setValue(5)
+            ->setBest(10)
+        )
+        // Добавление звёздочек рейтинга, их можно добавлять несколько
+        ->addRating((new Rating())
+            ->setValue(4)
+            ->setBest(5)
+        )
+
         // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке
-        ->addShare((new Share())->addVkontakte()->addTelegram()->addOdnoklassniki()->addFacebook()->addTwitter())
+        ->addShare((new Share())
+            ->addVkontakte()
+            ->addTelegram()
+            ->addOdnoklassniki()
+            ->addFacebook()
+            ->addTwitter()
+        )
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)
