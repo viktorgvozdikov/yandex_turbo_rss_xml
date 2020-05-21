@@ -6,6 +6,7 @@ use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Button;
+use ModuleBZ\YandexTurbo\Element\CallbackForm;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Feed;
@@ -188,6 +189,15 @@ class Content {
         return $this;
     }
 
+    /**
+     * Функция добавления формы обратной связи
+     * @param CallbackForm $callbackForm
+     * @return $this
+     */
+    function addCallbackForm(CallbackForm $callbackForm){
+        $this->content[] = $callbackForm;
+        return $this;
+    }
 
     /**
      * Добавлание блока "поделиться". По умолчанию все кнопки включены

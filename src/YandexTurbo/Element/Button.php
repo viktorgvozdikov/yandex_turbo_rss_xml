@@ -4,7 +4,7 @@ namespace ModuleBZ\YandexTurbo\Element;
 
 use ModuleBZ\YandexTurbo;
 
-class Button {
+class Button extends CallbackForm {
 
     /** @var string $text текст кнопки */
     protected $text;
@@ -28,8 +28,12 @@ class Button {
             string $color = '',
             bool $turbo = true,
             bool $primary = false,
-            bool $disabled = false
+            bool $disabled = false,
+            string $send_to = '',
+            string $agreement_company='',
+            string $agreement_link = ''
     ) {
+        parent::__construct($send_to,$agreement_company,$agreement_link);
         $this->text = $text;
         $this->form_action = $form_action;
         $this->background = $background;
@@ -127,6 +131,9 @@ class Button {
             .($this->turbo?' data-turbo="true"':'')
             .($this->primary?' data-primary="true"':'')
             .($this->disabled?' disabled':'')
+            .($this->send_to?' data-send-to="'.$this->send_to.'"':'')
+            .($this->agreement_company?' data-agreement-company="'.$this->agreement_company.'"':'')
+            .($this->agreement_link?' data-agreement-link="'.$this->agreement_link.'"':'')
         .'>'.$this->text.'</button>';
     }
 

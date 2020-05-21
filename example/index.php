@@ -5,6 +5,7 @@ use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Button;
+use ModuleBZ\YandexTurbo\Element\CallbackForm;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
@@ -317,11 +318,23 @@ $turbo->addItem(
         // Добавляем неактивную кнопку
         ->addButton((new Button())
             ->setText('Не пишите нам')
-            ->setFormAction('mailto:mail@mail.ru')
+            ->setFormAction('mailto:mail@gvozdikov.net')
             ->setBackground('red')
             ->setColor('white')
             ->setDisabled(true)
         )
+
+        // Добавляем кнопку с формой обратной связи
+        ->addButton((new Button())
+            ->setText('Напишите нам')
+            ->setFormAction('mailto:mail@gvozdikov.net')
+            ->setBackground('green')
+            ->setColor('white')
+            ->setSendTo('mail@gvozdikov.net')
+            ->setAgreementCompany('ООО «Гвоздиков.нет»')
+            ->setAgreementLink('https://gvozdikov.net/confidential/')
+        )
+
 
         // Добавление формы поиска
         ->addSearch((new Search())
@@ -348,6 +361,12 @@ $turbo->addItem(
             ->addOdnoklassniki()
             ->addFacebook()
             ->addTwitter()
+        )
+
+        ->addCallbackForm((new CallbackForm())
+            ->setSendTo('mail@gvozdikov.net')
+            ->setAgreementCompany('ООО «Гвоздиков.нет»')
+            ->setAgreementLink('https://gvozdikov.net/confidential/')
         )
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
