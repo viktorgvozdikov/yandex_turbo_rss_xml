@@ -5,6 +5,8 @@ namespace ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Cards;
+use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\Slider;
@@ -97,6 +99,28 @@ class Content {
         $this->content[] = $cards;
         return $this;
     }
+
+    /**
+     * Добавление карусели
+     * @param Carousel $carousel
+     * @return $this
+     */
+    function addCarousel(Carousel $carousel){
+        $this->content[] = $carousel;
+        return $this;
+    }
+
+    /**
+     * Добавление блок с текстом "читать подробнее"
+     * @param Fold $fold
+     * @return $this
+     */
+    function addFold(Fold $fold){
+        $this->content[] = $fold;
+        return $this;
+    }
+
+
 
     public function __toString() {
         return implode("",$this->content);

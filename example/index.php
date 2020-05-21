@@ -5,9 +5,12 @@ use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
+use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
 use ModuleBZ\YandexTurbo\Element\Slider;
+use ModuleBZ\YandexTurbo\Element\Snippet;
 use ModuleBZ\YandexTurbo\Element\Video;
 use ModuleBZ\YandexTurbo\Item;
 
@@ -182,6 +185,20 @@ $turbo->addItem(
                 ->setMore('http://gvozdikov.net/','Читать ещё')
             )
         )
+
+        // Добавляем карусель
+        ->addCarousel((new Carousel())
+            ->setHeader('Заголовок карусели')
+            ->addSnippet(new Snippet('Заголовок','https://clck.ru/FFAuR','https://gvozdikov.net/'))
+            ->addSnippet(new Snippet('Второй заголовок','https://clck.ru/FFAvn','https://gvozdikov.net/'))
+        )
+
+        // Добавляем длинный текст, с кнопкой "читать ещё"
+        ->addFold(new Fold('Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.'))
+
+
+
+
 
         // Добавляем блоки, которые у нас повторяются во всех статьях
         ->addContent($form)
