@@ -4,6 +4,7 @@ use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Button;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
@@ -295,6 +296,24 @@ $turbo->addItem(
         // Добавляем рекламу InPage
         ->addInPage((new InPage())->setAdId('123456')->setInpageAdId('64654654'))
 
+        // Добавляем кнопку, чтобы нам могли позвонить
+        ->addButton((new Button())
+            ->setText('Позвоните нам')
+            ->setFormAction('tel:+7(495)77777777')
+            ->setBackground('#222')
+            ->setColor('#eee')
+            ->setPrimary(true)
+            ->setTurbo(true)
+        )
+
+        // Добавляем неактивную кнопку
+        ->addButton((new Button())
+            ->setText('Не пишите нам')
+            ->setFormAction('mailto:mail@mail.ru')
+            ->setBackground('red')
+            ->setColor('white')
+            ->setDisabled(true)
+        )
 
 
         // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке

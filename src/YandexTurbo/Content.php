@@ -5,6 +5,7 @@ namespace ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Ad;
 use ModuleBZ\YandexTurbo\Element\Audio;
+use ModuleBZ\YandexTurbo\Element\Button;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
 use ModuleBZ\YandexTurbo\Element\Feed;
@@ -153,6 +154,17 @@ class Content {
         $this->content[] = $inPage;
         return $this;
     }
+
+    /**
+     * Добавление кнопки
+     * @param Button $button
+     * @return $this
+     */
+    function addButton(Button $button){
+        $this->content[] = $button;
+        return $this;
+    }
+
 
     /**
      * Добавлание блока "поделиться". По умолчанию все кнопки включены
