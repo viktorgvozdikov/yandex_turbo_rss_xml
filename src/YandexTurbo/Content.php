@@ -6,6 +6,7 @@ use ModuleBZ\YandexTurbo\Element\Accordion;
 use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
@@ -118,6 +119,16 @@ class Content {
      */
     function addFold(Fold $fold){
         $this->content[] = $fold;
+        return $this;
+    }
+
+    /**
+     * Добавление блока "Читайте также"
+     * @param Feed $feed
+     * @return $this
+     */
+    function addFeed(Feed $feed){
+        $this->content[] = $feed;
         return $this;
     }
 

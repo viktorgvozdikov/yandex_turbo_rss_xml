@@ -6,6 +6,8 @@ use ModuleBZ\YandexTurbo\Element\Audio;
 use ModuleBZ\YandexTurbo\Element\Card;
 use ModuleBZ\YandexTurbo\Element\Cards;
 use ModuleBZ\YandexTurbo\Element\Carousel;
+use ModuleBZ\YandexTurbo\Element\Feed;
+use ModuleBZ\YandexTurbo\Element\FeedItem;
 use ModuleBZ\YandexTurbo\Element\Fold;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Image;
@@ -13,6 +15,9 @@ use ModuleBZ\YandexTurbo\Element\Share;
 use ModuleBZ\YandexTurbo\Element\Slider;
 use ModuleBZ\YandexTurbo\Element\Snippet;
 use ModuleBZ\YandexTurbo\Element\Video;
+use ModuleBZ\YandexTurbo\Enum\EFeedItemThumbPosition;
+use ModuleBZ\YandexTurbo\Enum\EFeedItemThumbRatio;
+use ModuleBZ\YandexTurbo\Enum\EFeedLayout;
 use ModuleBZ\YandexTurbo\Item;
 
 include_once "../vendor/autoload.php";
@@ -197,6 +202,60 @@ $turbo->addItem(
         // Добавляем длинный текст, с кнопкой "читать ещё"
         ->addFold(new Fold('Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.'))
 
+        // Добавляем вертикальный блок "Читайте также"
+        ->addFeed((new Feed())
+            ->setTitle('Читайте также')
+            ->setLayout(EFeedLayout::VERTICAL)
+            ->addItem(
+                (new FeedItem())
+                    ->setTitle('Заголовок')
+                    ->setDescription('Описание элемента')
+                    ->setHref('https://gvozdikov.net')
+                    ->setThumb('https://clck.ru/FFAvn')
+                    ->setThumbPosition(EFeedItemThumbPosition::TOP)
+                    ->setThumbRatio(EFeedItemThumbRatio::RATIO_4_3)
+            )
+            ->addItem(
+                (new FeedItem())
+                    ->setTitle('Заголовок')
+                    ->setDescription('Описание элемента')
+                    ->setHref('https://gvozdikov.net')
+                    ->setThumb('https://clck.ru/FFAvn')
+                    ->setThumbPosition(EFeedItemThumbPosition::LEFT)
+                    ->setThumbRatio(EFeedItemThumbRatio::RATIO_1_1)
+            )
+            ->addItem(
+                (new FeedItem())
+                    ->setTitle('Заголовок')
+                    ->setDescription('Описание элемента')
+                    ->setHref('https://gvozdikov.net')
+                    ->setThumb('https://clck.ru/FFAvn')
+                    ->setThumbPosition(EFeedItemThumbPosition::RIGHT)
+                    ->setThumbRatio(EFeedItemThumbRatio::RATIO_3_4)
+            )
+        )
+
+        // Добавляем горизонтальный блок "Читайте также" (элементы продублированы из предыдущего блока)
+        ->addFeed((new Feed())
+            ->setTitle('Читайте также горизонтально')
+            ->setLayout(EFeedLayout::HORIZONTAL)
+            ->addItem(
+                (new FeedItem())
+                    ->setTitle('Заголовок')
+                    ->setDescription('Описание элемента')
+                    ->setHref('https://gvozdikov.net')
+                    ->setThumb('https://clck.ru/FFAvn')
+                    ->setThumbRatio(EFeedItemThumbRatio::RATIO_4_3)
+            )
+            ->addItem(
+                (new FeedItem())
+                    ->setTitle('Заголовок 2')
+                    ->setDescription('Описание элемента 2')
+                    ->setHref('https://gvozdikov.net')
+                    ->setThumb('https://clck.ru/FFAvn')
+                    ->setThumbRatio(EFeedItemThumbRatio::RATIO_4_3)
+            )
+        )
 
 
         // Добавляем кнпоку "поделиться" и расставляем кнопки в нужном нам порядке
