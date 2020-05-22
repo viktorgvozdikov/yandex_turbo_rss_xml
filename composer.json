@@ -3,7 +3,7 @@
   "description": "Генерация rss в формате xml для яндекс turbo",
   "version": "1.6.0",
   "keywords": ["php","yandex","turbo"],
-  "homepage": "https://gvozdikov.net/",
+  "homepage": "https://gvozdikov.net/yandex_turbo/",
   "license": "MIT",
   "authors" : [
     {
