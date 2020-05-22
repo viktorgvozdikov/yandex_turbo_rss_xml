@@ -76,7 +76,7 @@ class Card {
     public function __toString() {
         return
         '<div data-block="card"><header>'
-            .($this->header_image?'<img src="'.$this->header_image.'">':'')
+            .($this->header_image?'<img src="'.$this->header_image.'"/>':'')
             .($this->header_title?'<h2>'.$this->header_title.'</h2>':'')
             .'</header>'
             .$this->content

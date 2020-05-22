@@ -15,6 +15,8 @@ use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Feedback;
 use ModuleBZ\YandexTurbo\Element\FeedItem;
 use ModuleBZ\YandexTurbo\Element\Fold;
+use ModuleBZ\YandexTurbo\Element\Form;
+use ModuleBZ\YandexTurbo\Element\FormRadioOption;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Histogram;
 use ModuleBZ\YandexTurbo\Element\HistogramItem;
@@ -75,13 +77,6 @@ $turbo = (new YandexTurbo())
     // Подключение реклмного блока adfox
     ->addAdNetworkAdFox('second_ad_place',"<div id=\"идентификатор контейнера\"></div><script> window.Ya.adfoxCode.create({ ownerId: 123456, containerId: 'идентификатор контейнера', params: { pp: 'g', ps: 'cmic', p2: 'fqem' } }); </script>")
 ;
-
-// Формиурем заготовленные блоки контента, которые часто повторяются в статьх.
-// Например формы обратной связи, ссылки на соц. сети. и т.д.
-$form = (new Content())
-    ->addHtml('<p>Если у вас остались вопросы, то вы можете их задать нам в этой форме обратной связи</p>');
-
-
 
 // Добавляем новую статью в RSS
 $turbo->addItem(
@@ -469,9 +464,25 @@ $turbo->addItem(
             ->addChat()
         )
 
+        // Добавляем динамическую форму
+        ->addForm((new Form)
+            ->setEndPoint('https://gvozdikov.net/endPoint.php')
+            ->setSubmitText('Скорее отправить')
+            ->addResultText('description')
+            ->addResultLink('link')
+            ->addInputText('name','Имя','Введите имя')
+            ->addInputNumber('cats','Сколько у вас кошек','10')
+            ->addInputDate('birth_date','Когда день рождение?','1970.01.01')
+            ->addTextarea('comment','Ваш комментарий','Комментарий','Здравствуйте, ')
+            ->addCheckbox('subscribe','yes','Подписаться на новости')
+            ->addSelect('dogs','Сколько у вас собак','two',['one'=>'Одна','two'=>'Две','three'=>'Три','more'=>'Больше 3х'])
+            ->addRadio('delivery','Как доставить?',[
+                new FormRadioOption('moscow','Москва','сегодня',true),
+                new FormRadioOption('spb','Санкт-Петербург','завтра'),
+                new FormRadioOption('Venus','Венера','3010 год'),
+            ])
+        )
 
-        // Добавляем блоки, которые у нас повторяются во всех статьях
-        ->addContent($form)
     )
 );
 

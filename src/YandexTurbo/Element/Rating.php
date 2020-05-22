@@ -46,8 +46,8 @@ class Rating {
     public function __toString() {
         return
         '<div itemscope itemtype="http://schema.org/Rating">'
-            .'<meta itemprop="ratingValue" content="'.$this->value.'">'
-            .'<meta itemprop="bestRating" content="'.$this->best.'">'
+            .'<meta itemprop="ratingValue" content="'.$this->value.'"/>'
+            .'<meta itemprop="bestRating" content="'.$this->best.'"/>'
         .'</div>';
     }
 }

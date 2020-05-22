@@ -13,6 +13,7 @@ use ModuleBZ\YandexTurbo\Element\Comments;
 use ModuleBZ\YandexTurbo\Element\Feed;
 use ModuleBZ\YandexTurbo\Element\Feedback;
 use ModuleBZ\YandexTurbo\Element\Fold;
+use ModuleBZ\YandexTurbo\Element\Form;
 use ModuleBZ\YandexTurbo\Element\Gallery;
 use ModuleBZ\YandexTurbo\Element\Histogram;
 use ModuleBZ\YandexTurbo\Element\Image;
@@ -229,6 +230,16 @@ class Content {
      */
     function addFeedback(Feedback $feedback){
         $this->content[] = $feedback;
+        return $this;
+    }
+
+    /**
+     * Добавление динамической формы
+     * @param Form $form
+     * @return $this
+     */
+    function addForm(Form $form){
+        $this->content[] = $form;
         return $this;
     }
 
