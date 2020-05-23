@@ -5,6 +5,8 @@
 
 [Подробные примеры](https://gvozdikov.net/yandex_turbo/)
 
+- [Accordion](/docs/accordion.md)
+
 ## Установка
 
 ```composer require modulebz/yandex_turbo_rss_xml```

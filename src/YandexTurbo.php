@@ -154,7 +154,7 @@ class YandexTurbo {
     public function setLanguage($language)         {$this->language = $language;        return $this;}
 
 
-    public function addItem(Item $item){ if($item) $this->items[] = $item; }
+    public function addItem(Item $item){ if($item) $this->items[] = $item; return $this; }
 
 
     /**
