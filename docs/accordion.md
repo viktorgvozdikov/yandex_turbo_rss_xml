@@ -1,4 +1,8 @@
+# Акардеон
 
+Добавление аккордеона в яндекс турбо страницу
+
+## Код генерации
 ```php
 <?php
 use ModuleBZ\YandexTurbo;
@@ -28,7 +32,8 @@ echo $content;
 
 
 ```
-Результат
+
+## Результат
 
 ```xhtml
 <div data-block="accordion">
@@ -43,3 +48,5 @@ echo $content;
 	</div>
 </div>
 ```
+
+
