@@ -5,8 +5,32 @@
 
 [Подробные примеры](https://gvozdikov.net/yandex_turbo/)
 
-- [Accordion](/docs/accordion.md)
-- [Audui](/docs/audio.md)
+Добавление элементов в контент турбо страницы
+- [Accordion](/docs/accordion.md) Аккордеона  
+- [Ad](/docs/ad.md) Реклама РСЯ
+- [Audio](/docs/audio.md) Аудио
+Todo: 
+- Button
+- CallbackForm
+- Cards
+- Carousel
+- Comments
+- Feed
+- Feedback
+- Fold
+- Form
+- Gallery
+- Histogram
+- Image
+- InPage
+- Link
+- Rating
+- Search
+- Share
+- Slider
+- Snippet
+- Video
+
 
 ## Установка
 
