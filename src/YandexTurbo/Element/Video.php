@@ -119,7 +119,7 @@ class Video {
 
     protected function getVideoWithoutWrap(){
         return '<video width="'.$this->width.'" height="'.$this->height.'"><source src="'.$this->src.'" type="video/mp4" data-duration="'.$this->duration.'" '.($this->title?'data-title="'.$this->title.'"':'').'/></video>'
-        .($this->image?'<img src="'.$this->image.'"/>':'')
+        .($this->image?'<img src="'.$this->image.'" alt="'.$this->header.'"/>':'')
         .($this->header?'<figcaption>'.$this->header.'</figcaption>':'');
     }
 

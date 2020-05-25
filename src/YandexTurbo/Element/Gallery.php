@@ -32,7 +32,7 @@ class Gallery {
     }
     public function __toString() {
         return '<div data-block="gallery">'
-            .(implode("",array_map(function($v){return '<img src="'.$v.'"/>';},$this->images)))
+            .(implode("",array_map(function($v){return '<img src="'.$v.'" alt="'.$this->header.'"/>';},$this->images)))
             .($this->header?'<header>'.$this->header.'</header>':'')
             .'</div>';
     }

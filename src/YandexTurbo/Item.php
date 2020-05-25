@@ -180,7 +180,7 @@ class Item {
         return '<header>'
                     .(($c = $this->header_h1)?'<h1>'.$c.'</h1>':'')
                     .(($c = $this->header_h2)?'<h2>'.$c.'</h2>':'')
-                    .(($c = $this->header_img)?'<figure><img src="'.$c.'"/></figure>':'')
+                    .(($c = $this->header_img)?'<figure><img src="'.$c.'" alt="'.$this->header_h1.'"/></figure>':'')
                     .(($c = $this->header_menu)?'<menu>'.implode(array_map(function($v){return '<a href="'.$v[0].'">'.$v[1].'</a>';},$this->header_menu)).'</menu>':'')
                     .(($c = $this->header_breadcrumbs)?'<div data-block="breadcrumblist">'.implode(array_map(function($v){return '<a href="'.$v[0].'">'.$v[1].'</a>';},$this->header_breadcrumbs)).'</div>':'')
                 .'</header>';

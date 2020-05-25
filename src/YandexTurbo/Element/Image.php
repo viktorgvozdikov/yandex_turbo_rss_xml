@@ -39,7 +39,7 @@ class Image {
     }
 
     public function __toString() {
-        $img = '<img src="'.$this->src.'" '.YandexTurbo::renderAttribute($this->img_attributes).'/>';
+        $img = '<img src="'.$this->src.'" '.YandexTurbo::renderAttribute($this->img_attributes).' alt="'.$this->header.'"/>';
         return '<figure>'.$img.($this->header?'<figcaption '.YandexTurbo::renderAttribute($this->header_attributes).'>'.$this->header.'</figcaption>':'').'</figure>';
     }
 }
