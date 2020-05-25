@@ -10,7 +10,7 @@
 - [Ad](/docs/ad.md) Реклама РСЯ
 - [Audio](/docs/audio.md) Аудио
 
-Todo: 
+Документация Todo: 
 - Button
 - CallbackForm
 - Cards
@@ -31,6 +31,8 @@ Todo:
 - Slider
 - Snippet
 - Video
+- Item
+- Turbo
 
 
 ## Установка
