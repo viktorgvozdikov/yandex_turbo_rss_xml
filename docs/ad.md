@@ -15,7 +15,7 @@ $content = (new Content())
     // Добавляем рекламу
     ->addAd((new Ad())
         // Указываем id рекламы
-        ->setAdId('123456')
+        ->setAdId('my_turbo_id')
         // Включён ли рекламный блок на мобильных устройствах
         ->setMobile(true)
         // Включён ли рекламный блок на дескптопных устройствах
@@ -29,7 +29,7 @@ echo $content;
 ## Результат
 
 ```xhtml
-<figure data-turbo-ad-id="123456" data-platform-mobile="true" data-platform-desktop="true"></figure>
+<figure data-turbo-ad-id="my_turbo_id" data-platform-mobile="true" data-platform-desktop="true"></figure>
 ```
 
 

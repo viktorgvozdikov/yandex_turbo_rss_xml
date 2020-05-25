@@ -5,8 +5,8 @@
 
 [Подробные примеры](https://gvozdikov.net/yandex_turbo/)
 
-Добавление элементов в контент турбо страницы
-- [Accordion](/docs/accordion.md) Аккордеона  
+Добавление элементов в контент турбо страницы:
+- [Accordion](/docs/accordion.md) Аккордеон 
 - [Ad](/docs/ad.md) Реклама РСЯ
 - [Audio](/docs/audio.md) Аудио
 

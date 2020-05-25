@@ -295,7 +295,7 @@ $turbo->addItem(
 
         // Добавляем рекламу
         ->addAd((new Ad())
-            ->setAdId('123456')
+            ->setAdId('my_turbo_id')
             ->setMobile(true)
             ->setDesktop(true)
         )
