@@ -6,6 +6,7 @@
 [Подробные примеры](https://gvozdikov.net/yandex_turbo/)
 
 - [Accordion](/docs/accordion.md)
+- [Audui](/docs/audio.md)
 
 ## Установка
 

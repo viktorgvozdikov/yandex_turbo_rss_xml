@@ -17,7 +17,7 @@ class FormInput {
     protected $placeholder;
     protected $input_type;
     /** @var FormInput[] $options */
-    protected $options;
+    protected $options = [];
 
     /**
      * @param mixed $value

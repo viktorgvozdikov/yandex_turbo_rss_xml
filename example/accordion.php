@@ -1,9 +1,6 @@
 <?php
-use ModuleBZ\YandexTurbo;
 use ModuleBZ\YandexTurbo\Content;
 use ModuleBZ\YandexTurbo\Element\Accordion;
-use ModuleBZ\YandexTurbo\Element\AccordionItem;
-use ModuleBZ\YandexTurbo\Item;
 
 include_once "../vendor/autoload.php";
 
