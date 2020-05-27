@@ -9,9 +9,9 @@
 - [Accordion](/docs/accordion.md) Аккордеон 
 - [Ad](/docs/ad.md) Реклама РСЯ
 - [Audio](/docs/audio.md) Аудио
+- [Button](/docs/button.md) Кнопка
 
 Документация Todo: 
-- Button
 - CallbackForm
 - Cards
 - Carousel
